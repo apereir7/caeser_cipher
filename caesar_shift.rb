@@ -10,10 +10,22 @@ def split(string)
     end
 end
 
-
-def ascii(char,num )
-    return (char.ord + (num % 26)).chr 
+def convert_char(char,num)
+    (char.ord + (num % 26)).chr
 end
 
 
 
+
+def ascii(string, num )
+    split(string).each do |char|
+        if ( (65 <= char.ord) || (char.ord <= 96) )
+            return ascii(char)
+        end
+    end
+    
+end
+
+
+
+p convert_char("A", ((-26*99) -1 ) )
