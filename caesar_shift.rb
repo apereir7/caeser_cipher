@@ -10,23 +10,31 @@ def split(string)
     end
 end
 
-def convert_char(char,num)
-    (char.ord + (num % 26)).chr
+def check_letter(char,num)
+    calculation = (char.ord + (num % 26))
+    if (calculation > 122)
+        (calculation - 26).chr
+    else
+        calculation.chr
+    end
 end
 
 
 
 
 def ascii(string, num )
+    array = []
     split(string).each do |char|
-        if ( (65 <= char.ord) || (char.ord <= 96) )
-            return ascii(char)
-        elsif ( (97 <= char.ord) || (char.ord <= 122) )
-            return ascii(char)
+        if ( char.ord.between?(65, 90) || char.ord.between?(97,122) )
+            array << check_letter(char,num) 
         end
     end
+    return array
 end
 
 
 
-p convert_char("a", -1 )
+p ascii("hello", 25)
+
+
+
