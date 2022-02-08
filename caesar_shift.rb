@@ -21,11 +21,12 @@ def ascii(string, num )
     split(string).each do |char|
         if ( (65 <= char.ord) || (char.ord <= 96) )
             return ascii(char)
+        elsif ( (97 <= char.ord) || (char.ord <= 122) )
+            return ascii(char)
         end
     end
-    
 end
 
 
 
-p convert_char("A", ((-26*99) -1 ) )
+p convert_char("a", -1 )
